@@ -1,0 +1,40 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+today_member:
+  post: today
+  user: member
+  body: Yay!
+
+today_nonmember:
+  post: today
+  user: nonmember
+  body: '+1'
+
+yesterday_member:
+  post: yesterday
+  user: member
+  body: How is your posture?
+
+yesterday_author:
+  post: yesterday
+  user: author
+  body: Not great, why?
+
+yesterday_member_again:
+  post: yesterday
+  user: member
+  body: Try changing yoru posture, it helped me.
+
+yesterday_member_again:
+  post: yesterday
+  user: test1
+  body: I agree
+one:
+  post_id: 1
+  user_id: 1
+  body: MyText
+
+two:
+  post_id: 1
+  user_id: 1
+  body: MyText

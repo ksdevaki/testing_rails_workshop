@@ -9,3 +9,18 @@ test2:
   name: test2
   email: test2@abcd.com
   password_digest: <%= BCrypt::Password.create "test2" %>
+
+author:
+  name: author
+  email: author@abcd.com
+  password_digest: <%= BCrypt::Password.create "author" %>
+
+member:
+  name: member
+  email: member@abcd.com
+  password_digest: <%= BCrypt::Password.create "member" %>
+
+nonmember:
+  name: nonmember
+  email: nonmember@abcd.com
+  password_digest: <%= BCrypt::Password.create "nonmember" %>

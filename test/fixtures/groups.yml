@@ -1,0 +1,14 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+dev:
+  name: development
+ops:
+  name: ops
+empty:
+ name: empty
+ 
+one:
+  name: MyString
+
+two:
+  name: MyString
