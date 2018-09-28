@@ -2,7 +2,13 @@ require './test/test_helper'
 
 class MembershipTest < ActiveSupport::TestCase
   def setup
-    @member ||= memberships(:dev_author)
+    # @member ||= memberships(:dev_author)
+    @member ||= begin
+      m = Membership.new
+      m.group = groups(:dev)
+      m.user = users(:nonmember)
+      m
+    end
   end
 
   def test_valid_membership

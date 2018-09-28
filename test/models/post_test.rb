@@ -43,5 +43,21 @@ class PostTest < ActiveSupport::TestCase
     refute @post.valid?
     assert_includes @post.errors[:body], "can't be blank"
   end
+  
+  # Add a new comment: Post#add_comment(user, body)
+
+  def test_add_new_comment
+    comment = Comment.new
+    comment.user = users(:author)
+    comment.body = "Hey!!!"
+    assert @post.add_comment comment
+  end
+
+  def test_new_comment_user_body
+    # assert @post.add_comment_user(users(:author), "Hey!!!")
+    assert_difference "Comment.count" do
+      @post.add_comment_user(users(:author), "Hey!!!")
+    end
+  end
 
 end

@@ -3,7 +3,7 @@
 today:
   group: dev
   user: author
-  date: 2018-09-27
+  date: 2018-09-28
   body: samplepost
 
 yesterday:
@@ -13,9 +13,9 @@ yesterday:
   body: samplepost2
 
 one:
-  group_id: 1
+  group : dev
   user_id: 1
-  date: 2018-09-27
+  date: 2018-09-28
   body: MyText
 
 two:
