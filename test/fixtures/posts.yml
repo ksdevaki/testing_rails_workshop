@@ -3,23 +3,23 @@
 today:
   group: dev
   user: author
-  date: 2018-09-28
+  date: <%= Time.zone.today %>
   body: samplepost
 
 yesterday:
-  group: ops
+  group: dev
   user: nonmember
-  date: yesterday
+  date: <%= Time.zone.yesterday %>
   body: samplepost2
 
 one:
   group : dev
   user_id: 1
-  date: 2018-09-28
+  date: <%= Time.zone.today %>
   body: MyText
 
 two:
   group_id: 1
   user_id: 1
-  date: 2018-09-27
+  date: <%= Time.zone.yesterday %>
   body: MyText

@@ -18,5 +18,7 @@ class Post < ActiveRecord::Base
                         user_id: user.id,
                         body:    body
     end
+
+    
     
 end

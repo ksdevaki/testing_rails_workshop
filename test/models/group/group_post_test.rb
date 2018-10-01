@@ -10,6 +10,13 @@ class Group::GroupPostTest < ActiveSupport::TestCase
         assert_includes @group.post_for_day(Time.zone.today), posts(:today)
     end
 
+    #Test for empty date
+    def test_get_post_for_the_day_with_no_date
+        date = ""
+        assert_equal 3, @group.post_for_day(date).count
+        # assert_includes @group.post_for_day(Time.zone.today), posts(:today)
+    end
+
       # Retrieve a post for a given user and day: Group#post_for(user, date)
 
     def test_get_post_for_user_and_day
@@ -18,6 +25,7 @@ class Group::GroupPostTest < ActiveSupport::TestCase
         assert_includes @group.post_for_day_and_user(date, user), posts(:today)
         assert_equal 1, @group.post_for_day_and_user(date, user).count
     end
+
 
     def test_returns_nil_post_for_user_day
         date = Time.zone.today

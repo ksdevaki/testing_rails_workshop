@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  get 'home/index'
+  resources :groups, only: [:index, :show]
+  resources :posts
 
+  match 'groups/show', to: 'groups#show', via: 'get' 
   match '/login', to: 'sessions#new', via: 'get' 
   match '/login', to: 'sessions#create', via: 'post' 
 

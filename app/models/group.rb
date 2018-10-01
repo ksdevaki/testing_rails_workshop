@@ -7,7 +7,10 @@ class Group < ActiveRecord::Base
     def is_member? user
         users.include? user
     end
-
+    
+    def empty_post date
+        Post.new(group: self, date: date)
+      end
     def add_member user
         users << user unless is_member? user
     end
@@ -18,7 +21,12 @@ class Group < ActiveRecord::Base
 
     def post_for_day date
         # posts.where("date = ?", date)
-        posts.where(date: date)
+        byebug
+        unless(date.blank?)
+            posts.where(date: date)
+        else
+            posts
+        end
     end
 
     def post_for_day_and_user date, user

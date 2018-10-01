@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  has_one :membership
+  has_one :group, through: :membership
+
     has_secure_password
     validates :email, presence: true, uniqueness: true
     def self.authenticate email, password
@@ -8,5 +11,5 @@ class User < ActiveRecord::Base
         else
           Invalid.new email
          end
-       end
+    end
 end
