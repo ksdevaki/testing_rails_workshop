@@ -1,9 +1,7 @@
-<% post = @group.empty_post @date %>
+<% post = @group.posts.new %>
 <%= form_for post do |f| %>
 <%= f.hidden_field :group_id, value: @group.id %>
-<%= f.hidden_field :date, value: @date %>
-<% byebug %>
-<% if @post.errors.any? %>
+<% if @post && @post.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
 

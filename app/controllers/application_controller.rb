@@ -3,6 +3,8 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
+  
+
   protected
     def logged_in?
       current_user.present?
@@ -22,4 +24,10 @@ class ApplicationController < ActionController::Base
   def logout!
     session[:user_id] = nil
   end
+
+  def is_user_can_create_post?
+    post = Post.find_by(user_id:current_user.id, date: Time.zone.today)
+    post.blank?
+  end
+
 end

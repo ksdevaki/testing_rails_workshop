@@ -10,18 +10,18 @@ class PostsController < ApplicationController
 
     def new 
       @group = current_user.group
-      @date = Time.zone.today
+      # @date = Time.zone.today
 
     end
 
     def create
-      @post = Group.find(post_valid_param[:group_id]).add_post(post_valid_param[:date], current_user, post_valid_param[:body])
+      @post = Group.find(post_valid_param[:group_id]).add_post(Time.zone.today, current_user, post_valid_param[:body])
       if @post.save 
          redirect_to @post 
         # format.json { render action: 'show', status: :created, location: @post }
       else
         @group = current_user.group
-        @date = Time.zone.today
+        # @date = Time.zone.today
        render action: 'new' 
         # format.json { render json: @post.errors, status: :unprocessable_entity }
       end

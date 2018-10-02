@@ -5,6 +5,12 @@ class PostsControllerTest < ActionController::TestCase
   #   assert true
   # end
 
+  def setup
+    @user = users(:nonmember)
+    # login_path(user=@user, route = login_url)
+    request.session[:user_id] = @user.try(:id)
+  end
+
   def test_index
     get :index
     assert_response :success
@@ -23,22 +29,19 @@ class PostsControllerTest < ActionController::TestCase
     assert_includes response.body, comments(:today_member).body
   end
 
-  #Create
-  # def test_new_post
-  #   current_user = users(:author)
-  #   get :new
-  #   assert_response :success
-  # end
+  # Create
+  def test_new_post
+    # current_user = users(:author)
+    get :new
+    assert_response :success
+  end
 
-  # def test_create_post
-  #   assert_difference "Post.count", 1 do
-  #     post :create, post: {groups: groups(:dev),
-  #                           users: users(:test2),
-  #                           date: Time.zone.today,
-  #                         body: "samplepost test2" }
-  #   end
-  #  assert_redirected_to post_path(assigns(:post))
+  def test_create_post
+    assert_difference "Post.count", 1 do
+      post :create, post: {group_id: groups(:dev).id, body: "samplepost test2"}
+    end
+   assert_redirected_to post_path(assigns(:post))
 
-  # end
+  end
 
 end
