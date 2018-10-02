@@ -2,11 +2,12 @@
 <div>
     <ul>
         <% @posts.each do |post| %>
-        <li> <%= post.body %></li> 
+        <li><%= link_to post.body, post %> -- <%= post.user.name %></li> 
         <% end %>
     </ul>
 </div>
 
-
+    <% if can_create_post? %>
     <%= render 'posts/form' %>
+    <% end %>
 

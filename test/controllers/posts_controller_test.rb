@@ -27,6 +27,7 @@ class PostsControllerTest < ActionController::TestCase
     get :show, id: posts(:today)
     assert_response :success
     assert_includes response.body, comments(:today_member).body
+    # assert page.has_content?(comments(:today_member).body)
   end
 
   # Create
