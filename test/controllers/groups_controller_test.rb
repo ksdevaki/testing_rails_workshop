@@ -12,7 +12,6 @@ class GroupsControllerTest < ActionController::TestCase
   # end
   def setup
     @user = users(:author)
-    # login_path(user=@user, route = login_url)
     request.session[:user_id] = @user.try(:id)
   end
   def test_index
