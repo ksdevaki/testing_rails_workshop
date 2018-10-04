@@ -12,7 +12,7 @@ class PostsControllerTest < ActionController::TestCase
   end
 
   def test_index
-    get :index
+    get :index, group_id: groups(:dev)
     assert_response :success
     assert_includes response.body, posts(:today).body
   end

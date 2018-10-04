@@ -30,5 +30,7 @@
     </tbody>
     
 </table>
-
-<%= link_to 'New Post', new_post_path %>
+<% if can_create_post? %>
+    <h2>Add Post!</h2>
+    <%= link_to 'New Post', new_post_path %>
+<% end %>

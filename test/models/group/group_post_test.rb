@@ -6,7 +6,7 @@ class Group::GroupPostTest < ActiveSupport::TestCase
     end
 
     def test_get_post_for_the_day
-        assert_equal 2, @group.post_for_day(Time.zone.today).count
+        assert_equal 1, @group.post_for_day(Time.zone.today).count
         assert_includes @group.post_for_day(Time.zone.today), posts(:today)
     end
 

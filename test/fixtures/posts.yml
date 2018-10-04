@@ -14,8 +14,8 @@ yesterday:
 
 one:
   group : dev
-  user_id: 1
-  date: <%= Time.zone.today %>
+  user_id: member
+  date: <%= Time.zone.yesterday %>
   body: MyText
 
 two:

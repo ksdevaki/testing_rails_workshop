@@ -10,7 +10,11 @@ class GroupsControllerTest < ActionController::TestCase
   #   get :show , id: groups(:dev)
   #   assert_response :success
   # end
-
+  def setup
+    @user = users(:author)
+    # login_path(user=@user, route = login_url)
+    request.session[:user_id] = @user.try(:id)
+  end
   def test_index
     get :index
     assert_response :success
@@ -22,6 +26,7 @@ class GroupsControllerTest < ActionController::TestCase
     # Displays the Post
     assert_includes response.body, posts(:today).body
   end
+  
 
   def test_show_with_date_query
     get :show, id: groups(:dev) , date: Time.zone.today

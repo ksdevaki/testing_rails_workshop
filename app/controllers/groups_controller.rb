@@ -1,5 +1,6 @@
 class GroupsController < ApplicationController
 before_filter :redirect_on_bad_date, only: [:show]
+before_filter :authenticate_user
 
   def index
     @groups = Group.all

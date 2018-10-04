@@ -24,3 +24,9 @@ nonmember:
   name: nonmember
   email: nonmember@abcd.com
   password_digest: <%= BCrypt::Password.create "nonmember" %>
+
+one:
+  id : 1
+  name : one
+  email: one@abcd.com
+  password_digest: <%= BCrypt::Password.create "one" %>

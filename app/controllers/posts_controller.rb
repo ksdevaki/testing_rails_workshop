@@ -1,6 +1,9 @@
 class PostsController < ApplicationController
+  before_filter :authenticate_user
+
     def index
-      @posts = Post.all
+      @group = Group.find(params[:group_id])
+      @posts = @group.posts
     end
     
     def show

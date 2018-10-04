@@ -1,5 +1,8 @@
-<h1>Groups#show</h1>
+<h1>Today Posts!</h1>
 <div>
+    <% if @post.blank? %>
+        <h3>No post for today yet. </h3>
+    <% end %>
     <ul>
         <% @posts.each do |post| %>
         <li><%= link_to post.body, post %> -- <%= post.user.name %></li> 
@@ -8,6 +11,7 @@
 </div>
 
     <% if can_create_post? %>
-    <%= render 'posts/form' %>
+        <h2>Add Post!</h2>
+        <%= render 'posts/form' %>
     <% end %>
 

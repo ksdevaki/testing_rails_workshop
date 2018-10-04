@@ -25,9 +25,7 @@ class ApplicationController < ActionController::Base
     session[:user_id] = nil
   end
 
-  def is_user_can_create_post?
-    post = Post.find_by(user_id:current_user.id, date: Time.zone.today)
-    post.blank?
+  def authenticate_user
+    redirect_to root_path unless logged_in?
   end
-
 end
