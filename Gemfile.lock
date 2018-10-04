@@ -196,6 +196,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   jbuilder (~> 2.0)
   jquery-rails
+  minitest-rails
   minitest-rails-capybara
   mysql2 (>= 0.3.13, < 0.5)
   rails (= 4.2.7.1)
